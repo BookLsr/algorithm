@@ -1,4 +1,4 @@
-package com.tb.algorithm;
+package com.tb.algorithm.l26;
 
 /**
  * @Description:
