@@ -6,6 +6,7 @@
     <modules>
         <module>leetcode26</module>
         <module>leetcode189</module>
+        <module>leetcode21</module>
     </modules>
     <groupId>com.tb</groupId>
     <artifactId>algorithm</artifactId>
