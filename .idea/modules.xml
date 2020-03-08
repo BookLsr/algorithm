@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/leetcode189/leetcode189.iml" filepath="$PROJECT_DIR$/leetcode189/leetcode189.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode21/leetcode21.iml" filepath="$PROJECT_DIR$/leetcode21/leetcode21.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode26/leetcode26.iml" filepath="$PROJECT_DIR$/leetcode26/leetcode26.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leetcode88/leetcode88.iml" filepath="$PROJECT_DIR$/leetcode88/leetcode88.iml" />
     </modules>
   </component>
 </project>
