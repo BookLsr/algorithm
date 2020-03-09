@@ -9,6 +9,7 @@
         <module>leetcode21</module>
         <module>untitled</module>
         <module>leetcode88</module>
+        <module>leetcode1</module>
     </modules>
     <groupId>com.tb</groupId>
     <artifactId>algorithm</artifactId>
