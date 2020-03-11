@@ -10,6 +10,7 @@
         <module>leetcode88</module>
         <module>leetcode1</module>
         <module>leetcode641</module>
+        <module>leetcode41</module>
     </modules>
     <groupId>com.tb</groupId>
     <artifactId>algorithm</artifactId>
