@@ -1,5 +1,10 @@
 package com.tb.algorithm.l41;
 
+
+import com.sun.crypto.provider.DESKeyFactory;
+
+import java.util.concurrent.ConcurrentHashMap;
+
 public class Solution {
 
 
@@ -11,6 +16,8 @@ public class Solution {
      */
     public int trap(int[] height) {
         int sum = 0;
+        String a = "as";
+        char[] c = a.toCharArray();
         int[] max_left = new int[height.length];
         int[] max_right = new int[height.length];
 
@@ -26,7 +33,17 @@ public class Solution {
                 sum = sum + (min - height[i]);
             }
         }
+
         return sum;
+
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(String.class.getClassLoader()); //启动类加载器C语言实现，故为null
+        System.out.println(DESKeyFactory.class.getClassLoader().getClass().getName());
+        System.out.println(Solution.class.getClassLoader().getClass().getName());
+        System.out.println(ClassLoader.getSystemClassLoader().getClass().getName());
 
     }
 

@@ -65,7 +65,7 @@ public class Solution {
              * 1、判断二分在左还是右
              * 2、如果相等则往左继续寻找
              */
-            if (nums[middle] >= key) {
+            if (nums[middle] > key) {
                 end = middle - 1;
             } else if (nums[middle] < key) {
                 start = middle + 1;
@@ -80,10 +80,116 @@ public class Solution {
     }
 
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[] nums = {1,2,3,4,4,5,6,7,8,9};
-        int result = solution.find(nums, 5);
-        System.out.println(result);
+//    public static void main(String[] args) {
+////        Solution solution = new Solution();
+////        int[] nums = {1,2,3,4,4,5,6,7,8,9};
+////        int result = solution.find(nums, 5);
+////        System.out.println(result);
+//
+//        char[] a = {'a', 'b', 'c', 'd', 'e', 'f', 'g'};
+//        char[] b = {'a', 'b', 'c', 'd', 'f', 'g'};
+//        char result1 = find(a, b);
+//        System.out.println(result1);
+//    }
+
+
+
+
+    public static char find(char[] chars1, char[] chars2) {
+        /**
+         * 1、判断数组
+         * 2、确定key是否在数组内
+         * 3、采用二分法查找
+         */
+
+        if (chars1 == null || chars1.length == 0) {
+            System.out.println("不符合规范");
+            throw new RuntimeException();
+        }
+
+        if (chars2 == null || chars2.length == 0) {
+            System.out.println("不符合规范");
+            throw new RuntimeException();
+        }
+        int start = 0;
+        int end = chars1.length - 1;
+        int middle;
+        while (start <= end) {
+            middle = (start + end) / 2;
+            if (chars1[middle] == chars2[middle]) {
+                start = middle + 1;
+            }
+            if (chars1[middle] != chars2[middle]) {
+                if (chars1[middle - 1] == chars2[middle - 1]) {
+                    return chars1[middle];
+                }
+                end = middle;
+            }
+
+        }
+        throw new RuntimeException();
+
     }
+
+
+
+
+
+
+    public static void main(String[] args) throws InterruptedException {
+        final Object lock1 = new Object();
+        final Object lock2 = new Object();
+        Thread thread1 = new Thread(new Runnable() {
+            public void run() {
+                System.out.println("1 开始获取1锁");
+                synchronized (lock1) {
+                    System.out.println("1 获取1锁");
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("1 尝试获取2锁");
+                    synchronized (lock2) {
+                        System.out.println("1 已经获取2锁");
+                    }
+                }
+
+            }
+        });
+
+        Thread thread2 = new Thread(new Runnable() {
+            public void run() {
+                System.out.println("2 开始获取2锁");
+                synchronized (lock2) {
+                    System.out.println("2 获取2锁");
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("2 尝试获取1锁");
+                    synchronized (lock1) {
+                        System.out.println("2 已经获取1锁");
+                    }
+                }
+
+            }
+        });
+        thread1.start();
+        thread2.start();
+        Thread.sleep(10000);
+    }
+
+    public int help(String productId, String helpUserId, String userId) {
+        /**
+         * 1、判断helpUserId是否已经砍过，否则加入redis，并进行第二部操作，是返回code，良好提示
+         * 2、利用redis decr函数进行递减，若<0.良好提示，否则返回砍价后的价格
+         */
+        return 0;
+
+    }
+
 }

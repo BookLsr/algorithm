@@ -2,6 +2,9 @@ package com.tb.algorithm.l21;
 
 import com.tb.algorithm.l21.model.ListNode;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @Description: leetcode 21
  * @Author: WindPursuer
@@ -40,6 +43,37 @@ public class Solution {
         return temp;
 
     }
+
+
+    public static int[] retainAll(int[] array1, int[] array2) {
+        /**
+         * 利用Set去重
+         */
+        Set<Integer> set = new HashSet<Integer>();
+
+        for (int i = 0, j = 0; i < array1.length && j < array2.length;) {
+            if (array1[i] < array2[j]) {
+                i++;
+            }
+            if (array1[i] > array2[j]) {
+                j++;
+            }
+            if (array1[i] == array2[j]) {
+                set.add(array1[i]);
+                i++;
+                j++;
+
+            }
+        }
+        int[] result = new int[set.size()];
+        Integer[] integers = set.toArray(new Integer[]{});
+        for (int i = 0; i < integers.length; i++) {
+            result[i] = integers[i];
+        }
+        return result;
+    }
+
+
 
     public static void main(String[] args) {
         Solution solution = new Solution();
